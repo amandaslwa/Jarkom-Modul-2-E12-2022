@@ -73,3 +73,12 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	gateway 192.198.2.1
 ```
+### Sebelum Revisi
+### Nomor 1 sampai 6
+Pada Ostania, connect ke jaringan dengan menggunakan `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16` <br/>
+Pada tiap node, connect ke jaringan tersebut dengan menggunakan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
+<br/>
+<br/>
+Sebelum menjadikan WISE sebagai DNS Master/domain, perlu melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y`. Kemudian, WISE dijadikan DNS Master/domain dan Berlint dijadikan DNS Slave <br/>
+<img width="960" alt="named conf local2" src="https://user-images.githubusercontent.com/90702710/198830014-dac44a08-c305-4124-a0dd-85a6fc5595ed.png"><br/>
+Lakukan `mkdir /etc/bind/jarkom-e12`  dan `cp /etc/bind/db.local /etc/bind/jarkom-e12/wise.e12.com` pada WISE dan buat konfigurasi domain pada `/etc/bind/jarkom-e12/wise.e12.com` menggunakan `nano` <br/>
