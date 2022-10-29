@@ -81,7 +81,7 @@ Pada tiap node, connect ke jaringan tersebut dengan menggunakan `echo nameserver
 <br/>
 ### DNS Master dan konfigurasi domain
 Sebelum menjadikan WISE sebagai DNS Master/domain, perlu melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y`. Kemudian, WISE dijadikan DNS Master/domain dan Berlint dijadikan DNS Slave <br/>
-<img width="960" alt="named conf local2" src="https://user-images.githubusercontent.com/90702710/198830014-dac44a08-c305-4124-a0dd-85a6fc5595ed.png"><br/>
+<img width="960" alt="named conf local2" src="https://user-images.githubusercontent.com/90702710/198830014-dac44a08-c305-4124-a0dd-85a6fc5595ed.png"> <br/> <br/>
 Lakukan `mkdir /etc/bind/jarkom-e12`  dan `cp /etc/bind/db.local /etc/bind/jarkom-e12/wise.e12.com` pada WISE dan buat konfigurasi domain pada `/etc/bind/jarkom-e12/wise.e12.com` menggunakan `nano` <br/>
 <img width="960" alt="nano wise" src="https://user-images.githubusercontent.com/90702710/198830150-41fba31e-713f-491c-9863-f4360ae5447e.png"> <br/>
 Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate
@@ -89,7 +89,7 @@ Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate
 ### DNS Slave
 Sebelum menjadikan Berlint sebagai DNS Slave, perlu juga melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y` pada Berlint. <br/>
 <img width="960" alt="berlint dns slave" src="https://user-images.githubusercontent.com/90702710/198830717-97eb08a1-7818-47a1-9363-ef256d5e6440.png">
-<br/>
+<br/> 
 Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <br/>
 <br/>
 ### Client
@@ -124,6 +124,8 @@ Sekarang kita dapat melakukan pengecekan reverse domain yang sudah dibuat apakah
 ## Catatan
 - Semua instalasi aplikasi dan konfigurasi telah disimpan dalam `/root` dengan nama file yang sama dengan nama file yang digunakan di tiap node-nya
 - Backup tersebut dilakukan dengan cara menggunakan file `.bashrc` yang ada pada `/root`, sehingga ketika node dibuka dan dijalankan,  instalasi akan otomatis berjalan dan konfigurasi terupdate
-
+<br/>
+<br/>
 ## Kendala
-Terdapat beberapa kendala saat pengerjaan praktikum, seperti tidak dapat melakukan ping ke domain yang dibuat. Padahal step yang dilakukan dan konfigurasi yang dibuat sudah sesuai dengan modul yang diberikan
+- Terdapat beberapa kendala saat pengerjaan praktikum, seperti tidak dapat melakukan ping ke domain yang dibuat. Padahal step yang dilakukan dan konfigurasi yang dibuat sudah sesuai dengan modul yang diberikan
+- Terdapat kendala dalam membuka GNS3 bagi anggota lainnya, sehingga praktikum dikerjakan dengan hanya menggunakan 1 laptop
