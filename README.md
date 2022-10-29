@@ -86,3 +86,14 @@ Lakukan `mkdir /etc/bind/jarkom-e12`  dan `cp /etc/bind/db.local /etc/bind/jarko
 Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate
 <br/>
 <br/>
+
+Sebelum menjadikan Berlint sebagai DNS Slave, perlu juga melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y` pada Berlint. <br/>
+<img width="960" alt="berlint dns slave" src="https://user-images.githubusercontent.com/90702710/198830717-97eb08a1-7818-47a1-9363-ef256d5e6440.png">
+<br/>
+Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <br/>
+<br/>
+Untuk menjadikan SSS dan Garden sebagai client, perlu dilakukan `echo nameserver 192.168.122.1 > /etc/resolv.conf` dan install dnsutils dengan cara `apt-get update` dan `apt-get install dnsutils -y` dan melakukan koneksi kepada jaringan IP WISE dan IP Berlint
+```
+echo nameserver 192.198.3.2 > /etc/resolv.conf
+echo nameserver 192.198.2.2 >> /etc/resolv.conf
+```
