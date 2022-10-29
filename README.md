@@ -100,8 +100,10 @@ echo nameserver 192.198.2.2 >> /etc/resolv.conf
 ```
 <br/>
 Sekarang kita dapat melakukan ping ke domain yang telah kita buat
+
 ### Ping di SSS
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198832397-41f06069-080a-4036-8c1b-6ead2bc6682c.png"> <br/>
+
 ### Ping di Garden
 <img width="960" alt="ping garden" src="https://user-images.githubusercontent.com/90702710/198832451-091fbff7-663d-486a-a554-8c37afca7972.png">
 
@@ -121,7 +123,7 @@ Sekarang kita dapat melakukan pengecekan reverse domain yang sudah dibuat apakah
 
 ## Catatan
 - Semua instalasi aplikasi dan konfigurasi telah disimpan dalam `/root` dengan nama file yang sama dengan nama file yang digunakan di tiap node-nya
-- Backup tersebut dilakukan dengan cara menggunakan file `.bashrc` yang ada pada `/root`, sehingga ketika node dijalankan dan dibuka,  instalasi akan otomatis berjalan dan konfigurasi terupdate
+- Backup tersebut dilakukan dengan cara menggunakan file `.bashrc` yang ada pada `/root`, sehingga ketika node dibuka dan dijalankan,  instalasi akan otomatis berjalan dan konfigurasi terupdate
 
 ## Kendala
 Terdapat beberapa kendala saat pengerjaan praktikum, seperti tidak dapat melakukan ping ke domain yang dibuat. Padahal step yang dilakukan dan konfigurasi yang dibuat sudah sesuai dengan modul yang diberikan
