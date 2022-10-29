@@ -73,8 +73,8 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	gateway 192.198.2.1
 ```
-### Sebelum Revisi
-## Nomor 1 sampai 6
+
+## Nomor 1 sampai 7
 Pada Ostania, connect ke jaringan dengan menggunakan `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16` <br/>
 Pada tiap node, connect ke jaringan tersebut dengan menggunakan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
 <br/>
