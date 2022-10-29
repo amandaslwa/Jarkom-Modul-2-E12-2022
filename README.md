@@ -74,19 +74,19 @@ iface eth0 inet static
 	gateway 192.198.2.1
 ```
 ### Sebelum Revisi
-### Nomor 1 sampai 6
+## Nomor 1 sampai 6
 Pada Ostania, connect ke jaringan dengan menggunakan `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16` <br/>
 Pada tiap node, connect ke jaringan tersebut dengan menggunakan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
 <br/>
 <br/>
+### DNS Master dan konfigurasi domain
 Sebelum menjadikan WISE sebagai DNS Master/domain, perlu melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y`. Kemudian, WISE dijadikan DNS Master/domain dan Berlint dijadikan DNS Slave <br/>
 <img width="960" alt="named conf local2" src="https://user-images.githubusercontent.com/90702710/198830014-dac44a08-c305-4124-a0dd-85a6fc5595ed.png"><br/>
 Lakukan `mkdir /etc/bind/jarkom-e12`  dan `cp /etc/bind/db.local /etc/bind/jarkom-e12/wise.e12.com` pada WISE dan buat konfigurasi domain pada `/etc/bind/jarkom-e12/wise.e12.com` menggunakan `nano` <br/>
 <img width="960" alt="nano wise" src="https://user-images.githubusercontent.com/90702710/198830150-41fba31e-713f-491c-9863-f4360ae5447e.png"> <br/>
 Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate
 <br/>
-<br/>
-
+### DNS Slave
 Sebelum menjadikan Berlint sebagai DNS Slave, perlu juga melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y` pada Berlint. <br/>
 <img width="960" alt="berlint dns slave" src="https://user-images.githubusercontent.com/90702710/198830717-97eb08a1-7818-47a1-9363-ef256d5e6440.png">
 <br/>
@@ -101,12 +101,16 @@ echo nameserver 192.198.2.2 >> /etc/resolv.conf
 <br/>
 Sekarang kita dapat melakukan ping ke domain yang telah kita buat
 <br/>
-## Ping di SSS
-<img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198832397-41f06069-080a-4036-8c1b-6ead2bc6682c.png">
-## Ping di Garden
+<br/>
+
+### Ping di SSS
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198832397-41f06069-080a-4036-8c1b-6ead2bc6682c.png"> <br/>
+### Ping di Garden
 <img width="960" alt="ping garden" src="https://user-images.githubusercontent.com/90702710/198832451-091fbff7-663d-486a-a554-8c37afca7972.png">
+
 <br/>
 <br/>
+### Reverse Domain
 Setelah itu, untuk membuat reverse domain untuk domain utama, perlu mengupdate file `/etc/bind/named.conf.local` dan mengcopy nya ke konfigurasi reverse domain dengan cara `cp /etc/bind/db.local /etc/bind/jarkom-e12/3.198.192.in-addr.arpa` <br/>
 <img width="960" alt="reverse dns di named" src="https://user-images.githubusercontent.com/90702710/198831708-ccdeb1d7-420d-4a76-890d-b2d35a32921b.png"> <br/>
 <img width="960" alt="domain reverse ptr" src="https://user-images.githubusercontent.com/90702710/198831756-fa6ea1e5-680d-4703-a521-66045a76b3f9.png"> <br/>
