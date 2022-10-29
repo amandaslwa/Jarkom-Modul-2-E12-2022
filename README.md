@@ -99,9 +99,7 @@ echo nameserver 192.198.3.2 > /etc/resolv.conf
 echo nameserver 192.198.2.2 >> /etc/resolv.conf
 ```
 <br/>
-
 Sekarang kita dapat melakukan ping ke domain yang telah kita buat
-
 ### Ping di SSS
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198832397-41f06069-080a-4036-8c1b-6ead2bc6682c.png"> <br/>
 ### Ping di Garden
@@ -111,7 +109,7 @@ Sekarang kita dapat melakukan ping ke domain yang telah kita buat
 <br/>
 
 ### Reverse Domain
-<br/> Setelah itu, untuk membuat reverse domain untuk domain utama, perlu mengupdate file `/etc/bind/named.conf.local` dan mengcopy nya ke konfigurasi reverse domain dengan cara `cp /etc/bind/db.local /etc/bind/jarkom-e12/3.198.192.in-addr.arpa` <br/>
+Setelah itu, untuk membuat reverse domain untuk domain utama, perlu mengupdate file `/etc/bind/named.conf.local` dan mengcopy nya ke konfigurasi reverse domain dengan cara `cp /etc/bind/db.local /etc/bind/jarkom-e12/3.198.192.in-addr.arpa` <br/>
 <img width="960" alt="reverse dns di named" src="https://user-images.githubusercontent.com/90702710/198831708-ccdeb1d7-420d-4a76-890d-b2d35a32921b.png"> <br/>
 <img width="960" alt="domain reverse ptr" src="https://user-images.githubusercontent.com/90702710/198831756-fa6ea1e5-680d-4703-a521-66045a76b3f9.png"> <br/>
 Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <br/>
