@@ -74,8 +74,6 @@ iface eth0 inet static
 ```
 ## Sebelum Revisi
 ### Nomor 1 sampai 6
-<br/> 
-<br/> 
 Pada Ostania, connect ke jaringan dengan menggunakan `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16` <br/>
 Pada tiap node, connect ke jaringan tersebut dengan menggunakan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
 <br/>
@@ -112,6 +110,3 @@ Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <
 <br/>
 Sekarang kita dapat melakukan pengecekan reverse domain yang sudah dibuat apakah menuju domain yang dibuat atau tidak dengan cara `host -t PTR 192.198.3.2` <br/>
 <img width="960" alt="host -t " src="https://user-images.githubusercontent.com/90702710/198831900-cbe0413a-f836-4506-8a2c-eca17b851c93.png">
-
-
-
