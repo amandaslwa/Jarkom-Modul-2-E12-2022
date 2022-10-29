@@ -97,3 +97,20 @@ Untuk menjadikan SSS dan Garden sebagai client, perlu dilakukan `echo nameserver
 echo nameserver 192.198.3.2 > /etc/resolv.conf
 echo nameserver 192.198.2.2 >> /etc/resolv.conf
 ```
+
+<br/>
+<br/>
+Sekarang kita dapat melakukan ping ke domain yang telah kita buat <br/>
+### Ping di SSS
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198832397-41f06069-080a-4036-8c1b-6ead2bc6682c.png">
+### Ping di Garden
+<img width="960" alt="ping garden" src="https://user-images.githubusercontent.com/90702710/198832451-091fbff7-663d-486a-a554-8c37afca7972.png">
+<br/>
+<br/>
+Setelah itu, untuk membuat reverse domain untuk domain utama, perlu mengupdate file `/etc/bind/named.conf.local` dan mengcopy nya ke konfigurasi reverse domain dengan cara `cp /etc/bind/db.local /etc/bind/jarkom-e12/3.198.192.in-addr.arpa` <br/>
+<img width="960" alt="reverse dns di named" src="https://user-images.githubusercontent.com/90702710/198831708-ccdeb1d7-420d-4a76-890d-b2d35a32921b.png"> <br/>
+<img width="960" alt="domain reverse ptr" src="https://user-images.githubusercontent.com/90702710/198831756-fa6ea1e5-680d-4703-a521-66045a76b3f9.png"> <br/>
+Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <br/>
+<br/>
+Sekarang kita dapat melakukan pengecekan reverse domain yang sudah dibuat apakah menuju domain yang dibuat atau tidak dengan cara `host -t PTR 192.198.3.2` <br/>
+<img width="960" alt="host -t " src="https://user-images.githubusercontent.com/90702710/198831900-cbe0413a-f836-4506-8a2c-eca17b851c93.png">
