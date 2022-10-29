@@ -116,3 +116,12 @@ Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <
 <br/>
 Sekarang kita dapat melakukan pengecekan reverse domain yang sudah dibuat apakah menuju domain yang dibuat atau tidak dengan cara `host -t PTR 192.198.3.2` <br/>
 <img width="960" alt="host -t " src="https://user-images.githubusercontent.com/90702710/198831900-cbe0413a-f836-4506-8a2c-eca17b851c93.png">
+<br/>
+<br/>
+
+## Catatan
+- Semua instalasi aplikasi dan konfigurasi telah disimpan dalam `/root` dengan nama file yang sama dengan nama file yang digunakan di tiap node-nya
+- Backup tersebut dilakukan dengan cara menggunakan file `.bashrc` yang ada pada `/root`, sehingga ketika node dijalankan dan dibuka,  instalasi akan otomatis berjalan dan konfigurasi terupdate
+
+## Kendala
+Terdapat beberapa kendala saat pengerjaan praktikum, seperti tidak dapat melakukan ping ke domain yang dibuat. Padahal step yang dilakukan dan konfigurasi yang dibuat sudah sesuai dengan modul yang diberikan
