@@ -8,7 +8,6 @@ Kelas Jaringan Komputer E - Kelompok E12
 ### Pembuatan Topologi
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198829584-e18fa38e-cc6d-4376-b4e4-19aca74ff66c.png">
 <br/>
-
 ### Konfigurasi Ostania 
 ```
 #nat
@@ -73,7 +72,7 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	gateway 192.198.2.1
 ```
-
+<br/>
 ## Nomor 1 sampai 7
 Pada Ostania, connect ke jaringan dengan menggunakan `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16` <br/>
 Pada tiap node, connect ke jaringan tersebut dengan menggunakan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
@@ -100,16 +99,12 @@ echo nameserver 192.198.2.2 >> /etc/resolv.conf
 ```
 <br/>
 Sekarang kita dapat melakukan ping ke domain yang telah kita buat
-
 ### Ping di SSS
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198832397-41f06069-080a-4036-8c1b-6ead2bc6682c.png"> <br/>
-
 ### Ping di Garden
 <img width="960" alt="ping garden" src="https://user-images.githubusercontent.com/90702710/198832451-091fbff7-663d-486a-a554-8c37afca7972.png">
-
 <br/>
 <br/>
-
 ### Reverse Domain
 Setelah itu, untuk membuat reverse domain untuk domain utama, perlu mengupdate file `/etc/bind/named.conf.local` dan mengcopy nya ke konfigurasi reverse domain dengan cara `cp /etc/bind/db.local /etc/bind/jarkom-e12/3.198.192.in-addr.arpa` <br/>
 <img width="960" alt="reverse dns di named" src="https://user-images.githubusercontent.com/90702710/198831708-ccdeb1d7-420d-4a76-890d-b2d35a32921b.png"> <br/>
@@ -120,7 +115,6 @@ Sekarang kita dapat melakukan pengecekan reverse domain yang sudah dibuat apakah
 <img width="960" alt="host -t " src="https://user-images.githubusercontent.com/90702710/198831900-cbe0413a-f836-4506-8a2c-eca17b851c93.png">
 <br/>
 <br/>
-
 ## Catatan
 - Semua instalasi aplikasi dan konfigurasi telah disimpan dalam `/root` dengan nama file yang sama dengan nama file yang digunakan di tiap node-nya
 - Backup tersebut dilakukan dengan cara menggunakan file `.bashrc` yang ada pada `/root`, sehingga ketika node dibuka dan dijalankan,  instalasi akan otomatis berjalan dan konfigurasi terupdate
