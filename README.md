@@ -72,12 +72,12 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	gateway 192.198.2.1
 ```
+## Sebelum Revisi
+### Nomor 1 sampai 6
 <br/> 
 <br/> 
 Pada Ostania, connect ke jaringan dengan menggunakan `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16` <br/>
 Pada tiap node, connect ke jaringan tersebut dengan menggunakan `echo nameserver 192.168.122.1 > /etc/resolv.conf`
-
-
 <br/>
 Sebelum menjadikan WISE sebagai DNS Master/domain, perlu melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y`. Kemudian, WISE dijadikan DNS Master/domain dan Berlint dijadikan DNS Slave <br/>
 <img width="960" alt="named conf local2" src="https://user-images.githubusercontent.com/90702710/198830014-dac44a08-c305-4124-a0dd-85a6fc5595ed.png"><br/>
@@ -102,4 +102,7 @@ Sekarang kita dapat melakukan ping ke domain yang telah kita buat <br/>
 <img width="960" alt="ping www eden wise di sss" src="https://user-images.githubusercontent.com/90702710/198831287-ca867e2e-9765-405e-af19-c5b0911a9f4e.png">
 
 
-Setelah itu,
+Setelah itu, untuk membuat reverse domain untuk domain utama, perlu mengupdate file `/etc/bind/named.conf.local` dan mengcopy nya ke konfigurasi reverse domain dengan cara `cp /etc/bind/db.local /etc/bind/jarkom-e12/3.198.192.in-addr.arpa` <br/>
+<img width="960" alt="reverse dns di named" src="https://user-images.githubusercontent.com/90702710/198831708-ccdeb1d7-420d-4a76-890d-b2d35a32921b.png"> <br/>
+<img width="960" alt="domain reverse ptr" src="https://user-images.githubusercontent.com/90702710/198831756-fa6ea1e5-680d-4703-a521-66045a76b3f9.png"> <br/>
+Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <br/>
