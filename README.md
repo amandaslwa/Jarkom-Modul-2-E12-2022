@@ -5,7 +5,6 @@ Kelas Jaringan Komputer E - Kelompok E12
 - Amanda Salwa Salsabila (5025201172) 
 - Michael Ariel Manihuruk (5025201158) 
 
-## Nomor 1
 Pembuatan Topologi <br/>
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/90702710/198829584-e18fa38e-cc6d-4376-b4e4-19aca74ff66c.png">
 <br/>
@@ -65,7 +64,7 @@ iface eth0 inet static
 	netmask 255.255.255.0
 	gateway 192.198.2.1
 ```
-###Konfigurasi Eden
+### Konfigurasi Eden
 ```
 auto eth0
 iface eth0 inet static
@@ -86,3 +85,21 @@ Lakukan `mkdir /etc/bind/jarkom-e12`  dan `cp /etc/bind/db.local /etc/bind/jarko
 <img width="960" alt="nano wise" src="https://user-images.githubusercontent.com/90702710/198830150-41fba31e-713f-491c-9863-f4360ae5447e.png"> <br/>
 Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate
 <br/>
+Sebelum menjadikan Berlint sebagai DNS Slave, perlu juga melakukan instalasi bind9 dengan cara `apt-get update` dan `apt-get install bind9 -y` pada Berlint. <br/>
+<img width="960" alt="berlint dns slave" src="https://user-images.githubusercontent.com/90702710/198830717-97eb08a1-7818-47a1-9363-ef256d5e6440.png">
+<br/>
+Tidak lupa untuk melakukan `service bind9 restart` setiap konfigurasi diupdate <br/>
+
+Untuk menjadikan SSS dan Garden sebagai client, perlu dilakukan `echo nameserver 192.168.122.1 > /etc/resolv.conf` dan install dnsutils dengan cara `apt-get update` dan `apt-get install dnsutils -y` dan melakukan koneksi kepada jaringan IP WISE dan IP Berlint
+```
+echo nameserver 192.198.3.2 > /etc/resolv.conf
+echo nameserver 192.198.2.2 >> /etc/resolv.conf
+```
+Sekarang kita dapat melakukan ping ke domain yang telah kita buat <br/>
+<img width="960" alt="ping wise di sss" src="https://user-images.githubusercontent.com/90702710/198831233-d2ae2b1a-b850-4d12-8a58-977b76c6c8ca.png">
+<img width="960" alt="ping www wise di garden" src="https://user-images.githubusercontent.com/90702710/198831265-fc6528d6-75ab-4dda-9a18-ef8b5cee83a7.png">
+<img width="960" alt="ping eden wise di sss" src="https://user-images.githubusercontent.com/90702710/198831278-2f2645c1-0b37-4a5d-9150-61bd1148cd8f.png">
+<img width="960" alt="ping www eden wise di sss" src="https://user-images.githubusercontent.com/90702710/198831287-ca867e2e-9765-405e-af19-c5b0911a9f4e.png">
+
+
+Setelah itu,
