@@ -32,7 +32,7 @@ iface eth2 inet static
 	address 192.198.3.1
 	netmask 255.255.255.0
 ```
-### Konfigurasi WISE 
+### Konfigurasi WISE  
 ```
 auto eth0
 iface eth0 inet static
